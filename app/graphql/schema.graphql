@@ -1,11 +1,51 @@
-type Mutation {
+type Mutation implements Node {
+  """
+  ID of the object.
+  """
+  id: ID!
+
   """
   An example field added by the generator
   """
   testField: String!
 }
 
-type Query {
+"""
+An object with an ID.
+"""
+interface Node {
+  """
+  ID of the object.
+  """
+  id: ID!
+}
+
+type Query implements Node {
+  """
+  ID of the object.
+  """
+  id: ID!
+
+  """
+  Fetches an object given its ID.
+  """
+  node(
+    """
+    ID of the object.
+    """
+    id: ID!
+  ): Node
+
+  """
+  Fetches a list of objects given a list of IDs.
+  """
+  nodes(
+    """
+    IDs of the objects.
+    """
+    ids: [ID!]!
+  ): [Node]!
+
   """
   An example field added by the generator
   """

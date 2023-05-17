@@ -20,14 +20,46 @@
           "enumValues": null
         },
         {
+          "kind": "SCALAR",
+          "name": "ID",
+          "description": "Represents a unique identifier that is Base64 obfuscated. It is often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `\"VXNlci0xMA==\"`) or integer (such as `4`) input value will be accepted as an ID.",
+          "interfaces": null,
+          "possibleTypes": null,
+          "fields": null,
+          "inputFields": null,
+          "enumValues": null
+        },
+        {
           "kind": "OBJECT",
           "name": "Mutation",
           "description": null,
           "interfaces": [
-
+            {
+              "kind": "INTERFACE",
+              "name": "Node",
+              "ofType": null
+            }
           ],
           "possibleTypes": null,
           "fields": [
+            {
+              "name": "id",
+              "description": "ID of the object.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+
+              ]
+            },
             {
               "name": "testField",
               "description": "An example field added by the generator",
@@ -51,14 +83,152 @@
           "enumValues": null
         },
         {
+          "kind": "INTERFACE",
+          "name": "Node",
+          "description": "An object with an ID.",
+          "interfaces": [
+
+          ],
+          "possibleTypes": [
+            {
+              "kind": "OBJECT",
+              "name": "Mutation",
+              "ofType": null
+            },
+            {
+              "kind": "OBJECT",
+              "name": "Query",
+              "ofType": null
+            }
+          ],
+          "fields": [
+            {
+              "name": "id",
+              "description": "ID of the object.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+
+              ]
+            }
+          ],
+          "inputFields": null,
+          "enumValues": null
+        },
+        {
           "kind": "OBJECT",
           "name": "Query",
           "description": null,
           "interfaces": [
-
+            {
+              "kind": "INTERFACE",
+              "name": "Node",
+              "ofType": null
+            }
           ],
           "possibleTypes": null,
           "fields": [
+            {
+              "name": "id",
+              "description": "ID of the object.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+
+              ]
+            },
+            {
+              "name": "node",
+              "description": "Fetches an object given its ID.",
+              "type": {
+                "kind": "INTERFACE",
+                "name": "Node",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+                {
+                  "name": "id",
+                  "description": "ID of the object.",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null,
+                  "isDeprecated": false,
+                  "deprecationReason": null
+                }
+              ]
+            },
+            {
+              "name": "nodes",
+              "description": "Fetches a list of objects given a list of IDs.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INTERFACE",
+                    "name": "Node",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+                {
+                  "name": "ids",
+                  "description": "IDs of the objects.",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "LIST",
+                      "name": null,
+                      "ofType": {
+                        "kind": "NON_NULL",
+                        "name": null,
+                        "ofType": {
+                          "kind": "SCALAR",
+                          "name": "ID",
+                          "ofType": null
+                        }
+                      }
+                    }
+                  },
+                  "defaultValue": null,
+                  "isDeprecated": false,
+                  "deprecationReason": null
+                }
+              ]
+            },
             {
               "name": "testField",
               "description": "An example field added by the generator",
