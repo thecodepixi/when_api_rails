@@ -37,4 +37,15 @@ class WhenApiRailsSchema < GraphQL::Schema
     # For example, use Rails' GlobalID library (https://github.com/rails/globalid):
     GlobalID.find(global_id)
   end
+
+  # You'll also need to define `resolve_type` for
+  # telling the schema what type Relay `Node` objects are
+  def self.resolve_type(type, obj, ctx)
+    case obj
+    when Event
+      Types::EventType
+    else
+      raise("Unexpected object: #{obj}")
+    end
+  end
 end
