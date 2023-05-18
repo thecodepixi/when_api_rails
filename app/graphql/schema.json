@@ -20,6 +20,133 @@
           "enumValues": null
         },
         {
+          "kind": "OBJECT",
+          "name": "Event",
+          "description": "A calendar event",
+          "interfaces": [
+            {
+              "kind": "INTERFACE",
+              "name": "Node",
+              "ofType": null
+            }
+          ],
+          "possibleTypes": null,
+          "fields": [
+            {
+              "name": "description",
+              "description": "A description of the event",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+
+              ]
+            },
+            {
+              "name": "endDate",
+              "description": "The end date of the event, in YYYY-MM-DD format",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+
+              ]
+            },
+            {
+              "name": "endTime",
+              "description": "The end time of the event, in HH:MM am/pm format",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+
+              ]
+            },
+            {
+              "name": "id",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+
+              ]
+            },
+            {
+              "name": "label",
+              "description": "The unique readable identifier for the event, like a title or a name",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+
+              ]
+            },
+            {
+              "name": "startDate",
+              "description": "The start date of the event, in YYYY-MM-DD format",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+
+              ]
+            },
+            {
+              "name": "startTime",
+              "description": "The start time of the event, in HH:MM am/pm format",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+
+              ]
+            }
+          ],
+          "inputFields": null,
+          "enumValues": null
+        },
+        {
           "kind": "SCALAR",
           "name": "ID",
           "description": "Represents a unique identifier that is Base64 obfuscated. It is often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `\"VXNlci0xMA==\"`) or integer (such as `4`) input value will be accepted as an ID.",
@@ -92,6 +219,11 @@
           "possibleTypes": [
             {
               "kind": "OBJECT",
+              "name": "Event",
+              "ofType": null
+            },
+            {
+              "kind": "OBJECT",
               "name": "Mutation",
               "ofType": null
             },
@@ -137,6 +269,35 @@
           ],
           "possibleTypes": null,
           "fields": [
+            {
+              "name": "event",
+              "description": "Find an Event by ID",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Event",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+                {
+                  "name": "id",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null,
+                  "isDeprecated": false,
+                  "deprecationReason": null
+                }
+              ]
+            },
             {
               "name": "id",
               "description": "ID of the object.",
@@ -227,24 +388,6 @@
                   "isDeprecated": false,
                   "deprecationReason": null
                 }
-              ]
-            },
-            {
-              "name": "testField",
-              "description": "An example field added by the generator",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
-
               ]
             }
           ],

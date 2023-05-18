@@ -1,3 +1,39 @@
+"""
+A calendar event
+"""
+type Event implements Node {
+  """
+  A description of the event
+  """
+  description: String
+
+  """
+  The end date of the event, in YYYY-MM-DD format
+  """
+  endDate: String
+
+  """
+  The end time of the event, in HH:MM am/pm format
+  """
+  endTime: String
+  id: ID!
+
+  """
+  The unique readable identifier for the event, like a title or a name
+  """
+  label: String!
+
+  """
+  The start date of the event, in YYYY-MM-DD format
+  """
+  startDate: String!
+
+  """
+  The start time of the event, in HH:MM am/pm format
+  """
+  startTime: String
+}
+
 type Mutation implements Node {
   """
   ID of the object.
@@ -22,6 +58,11 @@ interface Node {
 
 type Query implements Node {
   """
+  Find an Event by ID
+  """
+  event(id: ID!): Event
+
+  """
   ID of the object.
   """
   id: ID!
@@ -45,9 +86,4 @@ type Query implements Node {
     """
     ids: [ID!]!
   ): [Node]!
-
-  """
-  An example field added by the generator
-  """
-  testField: String!
 }

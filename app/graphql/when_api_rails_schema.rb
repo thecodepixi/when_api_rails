@@ -15,10 +15,15 @@ class WhenApiRailsSchema < GraphQL::Schema
   end
 
   # Union and Interface Resolution
-  def self.resolve_type(abstract_type, obj, ctx)
-    # TODO: Implement this method
-    # to return the correct GraphQL object type for `obj`
-    raise(GraphQL::RequiredImplementationMissingError)
+  # You'll also need to define `resolve_type` for
+  # telling the schema what type Relay `Node` objects are
+  def self.resolve_type(type, obj, ctx)
+    case obj
+    when Event
+      Types::EventType
+    else
+      raise("Unexpected object: #{obj}")
+    end
   end
 
   # Stop validating when it encounters this many errors:
@@ -36,16 +41,5 @@ class WhenApiRailsSchema < GraphQL::Schema
   def self.object_from_id(global_id, query_ctx)
     # For example, use Rails' GlobalID library (https://github.com/rails/globalid):
     GlobalID.find(global_id)
-  end
-
-  # You'll also need to define `resolve_type` for
-  # telling the schema what type Relay `Node` objects are
-  def self.resolve_type(type, obj, ctx)
-    case obj
-    when Event
-      Types::EventType
-    else
-      raise("Unexpected object: #{obj}")
-    end
   end
 end
