@@ -11,7 +11,7 @@ module Types
       argument :id, ID
     end
 
-    def event(id)
+    def event(id:)
       Event.find(id)
     end 
 
