@@ -8,14 +8,14 @@ type Event implements Node {
   description: String
 
   """
-  The end date of the event, in YYYY-MM-DD format
+  The end date of the event, in ISO8601 format
   """
-  endDate: String
+  endDate: ISO8601Date
 
   """
-  The end time of the event, in HH:MM am/pm format
+  The end time of the event, in ISO8601 format
   """
-  endTime: String
+  endTime: ISO8601DateTime
   id: ID!
 
   """
@@ -24,14 +24,14 @@ type Event implements Node {
   label: String!
 
   """
-  The start date of the event, in YYYY-MM-DD format
+  The start date of the event, in ISO8601 format
   """
-  startDate: String!
+  startDate: ISO8601Date!
 
   """
-  The start time of the event, in HH:MM am/pm format
+  The start time of the event, ISO8601 format
   """
-  startTime: String
+  startTime: ISO8601DateTime
 }
 
 """
@@ -49,14 +49,14 @@ input EventCreateInput {
   description: String
 
   """
-  The end date of the event, in YYYY-MM-DD format
+  The end date of the event, ISO8601 format
   """
-  endDate: String
+  endDate: ISO8601Date
 
   """
-  The end time of the event, in HH:MM am/pm format
+  The end time of the event, ISO8601
   """
-  endTime: String
+  endTime: ISO8601DateTime
 
   """
   The unique readable identifier for the event, like a title or a name
@@ -64,14 +64,14 @@ input EventCreateInput {
   label: String!
 
   """
-  The start date of the event, in YYYY-MM-DD format
+  The start date of the event, ISO8601 format
   """
-  startDate: String!
+  startDate: ISO8601Date!
 
   """
-  The start time of the event, in HH:MM am/pm format
+  The start time of the event, ISO8601
   """
-  startTime: String
+  startTime: ISO8601DateTime
 }
 
 """
@@ -90,6 +90,16 @@ type EventCreatePayload implements Node {
   """
   id: ID!
 }
+
+"""
+An ISO 8601-encoded date
+"""
+scalar ISO8601Date
+
+"""
+An ISO 8601-encoded datetime
+"""
+scalar ISO8601DateTime
 
 type Mutation implements Node {
   eventCreate(

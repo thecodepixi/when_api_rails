@@ -48,10 +48,10 @@
             },
             {
               "name": "endDate",
-              "description": "The end date of the event, in YYYY-MM-DD format",
+              "description": "The end date of the event, in ISO8601 format",
               "type": {
                 "kind": "SCALAR",
-                "name": "String",
+                "name": "ISO8601Date",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -62,10 +62,10 @@
             },
             {
               "name": "endTime",
-              "description": "The end time of the event, in HH:MM am/pm format",
+              "description": "The end time of the event, in ISO8601 format",
               "type": {
                 "kind": "SCALAR",
-                "name": "String",
+                "name": "ISO8601DateTime",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -112,13 +112,13 @@
             },
             {
               "name": "startDate",
-              "description": "The start date of the event, in YYYY-MM-DD format",
+              "description": "The start date of the event, in ISO8601 format",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ISO8601Date",
                   "ofType": null
                 }
               },
@@ -130,10 +130,10 @@
             },
             {
               "name": "startTime",
-              "description": "The start time of the event, in HH:MM am/pm format",
+              "description": "The start time of the event, ISO8601 format",
               "type": {
                 "kind": "SCALAR",
-                "name": "String",
+                "name": "ISO8601DateTime",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -184,13 +184,13 @@
             },
             {
               "name": "startDate",
-              "description": "The start date of the event, in YYYY-MM-DD format",
+              "description": "The start date of the event, ISO8601 format",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ISO8601Date",
                   "ofType": null
                 }
               },
@@ -212,10 +212,10 @@
             },
             {
               "name": "startTime",
-              "description": "The start time of the event, in HH:MM am/pm format",
+              "description": "The start time of the event, ISO8601",
               "type": {
                 "kind": "SCALAR",
-                "name": "String",
+                "name": "ISO8601DateTime",
                 "ofType": null
               },
               "defaultValue": null,
@@ -224,10 +224,10 @@
             },
             {
               "name": "endDate",
-              "description": "The end date of the event, in YYYY-MM-DD format",
+              "description": "The end date of the event, ISO8601 format",
               "type": {
                 "kind": "SCALAR",
-                "name": "String",
+                "name": "ISO8601Date",
                 "ofType": null
               },
               "defaultValue": null,
@@ -236,10 +236,10 @@
             },
             {
               "name": "endTime",
-              "description": "The end time of the event, in HH:MM am/pm format",
+              "description": "The end time of the event, ISO8601",
               "type": {
                 "kind": "SCALAR",
-                "name": "String",
+                "name": "ISO8601DateTime",
                 "ofType": null
               },
               "defaultValue": null,
@@ -342,6 +342,26 @@
           "kind": "SCALAR",
           "name": "ID",
           "description": "Represents a unique identifier that is Base64 obfuscated. It is often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `\"VXNlci0xMA==\"`) or integer (such as `4`) input value will be accepted as an ID.",
+          "interfaces": null,
+          "possibleTypes": null,
+          "fields": null,
+          "inputFields": null,
+          "enumValues": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "ISO8601Date",
+          "description": "An ISO 8601-encoded date",
+          "interfaces": null,
+          "possibleTypes": null,
+          "fields": null,
+          "inputFields": null,
+          "enumValues": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "ISO8601DateTime",
+          "description": "An ISO 8601-encoded datetime",
           "interfaces": null,
           "possibleTypes": null,
           "fields": null,
