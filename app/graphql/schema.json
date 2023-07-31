@@ -47,11 +47,11 @@
               ]
             },
             {
-              "name": "endDate",
-              "description": "The end date of the event, in ISO8601 format",
+              "name": "eventEnd",
+              "description": "The end time of the event, in ISO8601 format",
               "type": {
                 "kind": "SCALAR",
-                "name": "ISO8601Date",
+                "name": "ISO8601DateTime",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -61,12 +61,16 @@
               ]
             },
             {
-              "name": "endTime",
-              "description": "The end time of the event, in ISO8601 format",
+              "name": "eventStart",
+              "description": "The start date of the event, in ISO8601 format",
               "type": {
-                "kind": "SCALAR",
-                "name": "ISO8601DateTime",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ISO8601DateTime",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null,
@@ -103,38 +107,6 @@
                   "name": "String",
                   "ofType": null
                 }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
-
-              ]
-            },
-            {
-              "name": "startDate",
-              "description": "The start date of the event, in ISO8601 format",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ISO8601Date",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
-
-              ]
-            },
-            {
-              "name": "startTime",
-              "description": "The start time of the event, ISO8601 format",
-              "type": {
-                "kind": "SCALAR",
-                "name": "ISO8601DateTime",
-                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null,
@@ -183,14 +155,14 @@
               "deprecationReason": null
             },
             {
-              "name": "startDate",
-              "description": "The start date of the event, ISO8601 format",
+              "name": "eventStart",
+              "description": "The start date of the event, in YYYY-MM-DD HH:HH am/pm format",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "ISO8601Date",
+                  "name": "ISO8601DateTime",
                   "ofType": null
                 }
               },
@@ -211,32 +183,8 @@
               "deprecationReason": null
             },
             {
-              "name": "startTime",
-              "description": "The start time of the event, ISO8601",
-              "type": {
-                "kind": "SCALAR",
-                "name": "ISO8601DateTime",
-                "ofType": null
-              },
-              "defaultValue": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "endDate",
-              "description": "The end date of the event, ISO8601 format",
-              "type": {
-                "kind": "SCALAR",
-                "name": "ISO8601Date",
-                "ofType": null
-              },
-              "defaultValue": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "endTime",
-              "description": "The end time of the event, ISO8601",
+              "name": "eventEnd",
+              "description": "The end date of the event, in YYYY-MM-DD HH:HH am/pm format",
               "type": {
                 "kind": "SCALAR",
                 "name": "ISO8601DateTime",
@@ -342,16 +290,6 @@
           "kind": "SCALAR",
           "name": "ID",
           "description": "Represents a unique identifier that is Base64 obfuscated. It is often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `\"VXNlci0xMA==\"`) or integer (such as `4`) input value will be accepted as an ID.",
-          "interfaces": null,
-          "possibleTypes": null,
-          "fields": null,
-          "inputFields": null,
-          "enumValues": null
-        },
-        {
-          "kind": "SCALAR",
-          "name": "ISO8601Date",
-          "description": "An ISO 8601-encoded date",
           "interfaces": null,
           "possibleTypes": null,
           "fields": null,
@@ -524,6 +462,28 @@
                   "isDeprecated": false,
                   "deprecationReason": null
                 }
+              ]
+            },
+            {
+              "name": "events",
+              "description": "All events",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "Event",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+
               ]
             },
             {

@@ -50,3 +50,5 @@ group :development do
   # gem "spring"
 end
 
+
+gem "pry", "~> 0.14.2"

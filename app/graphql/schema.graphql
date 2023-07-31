@@ -8,30 +8,20 @@ type Event implements Node {
   description: String
 
   """
-  The end date of the event, in ISO8601 format
-  """
-  endDate: ISO8601Date
-
-  """
   The end time of the event, in ISO8601 format
   """
-  endTime: ISO8601DateTime
+  eventEnd: ISO8601DateTime
+
+  """
+  The start date of the event, in ISO8601 format
+  """
+  eventStart: ISO8601DateTime!
   id: ID!
 
   """
   The unique readable identifier for the event, like a title or a name
   """
   label: String!
-
-  """
-  The start date of the event, in ISO8601 format
-  """
-  startDate: ISO8601Date!
-
-  """
-  The start time of the event, ISO8601 format
-  """
-  startTime: ISO8601DateTime
 }
 
 """
@@ -49,29 +39,19 @@ input EventCreateInput {
   description: String
 
   """
-  The end date of the event, ISO8601 format
+  The end date of the event, in YYYY-MM-DD HH:HH am/pm format
   """
-  endDate: ISO8601Date
+  eventEnd: ISO8601DateTime
 
   """
-  The end time of the event, ISO8601
+  The start date of the event, in YYYY-MM-DD HH:HH am/pm format
   """
-  endTime: ISO8601DateTime
+  eventStart: ISO8601DateTime!
 
   """
   The unique readable identifier for the event, like a title or a name
   """
   label: String!
-
-  """
-  The start date of the event, ISO8601 format
-  """
-  startDate: ISO8601Date!
-
-  """
-  The start time of the event, ISO8601
-  """
-  startTime: ISO8601DateTime
 }
 
 """
@@ -90,11 +70,6 @@ type EventCreatePayload implements Node {
   """
   id: ID!
 }
-
-"""
-An ISO 8601-encoded date
-"""
-scalar ISO8601Date
 
 """
 An ISO 8601-encoded datetime
@@ -130,6 +105,11 @@ type Query implements Node {
   Find an Event by ID
   """
   event(id: ID!): Event
+
+  """
+  All events
+  """
+  events: [Event!]
 
   """
   ID of the object.
