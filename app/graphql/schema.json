@@ -22,7 +22,7 @@
         {
           "kind": "OBJECT",
           "name": "Event",
-          "description": "A calendar event",
+          "description": null,
           "interfaces": [
             {
               "kind": "INTERFACE",
@@ -156,7 +156,7 @@
             },
             {
               "name": "eventStart",
-              "description": "The start date of the event, in YYYY-MM-DD HH:HH am/pm format",
+              "description": "The start date of the event, in ISO8601DateTime format",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -184,7 +184,7 @@
             },
             {
               "name": "eventEnd",
-              "description": "The end date of the event, in YYYY-MM-DD HH:HH am/pm format",
+              "description": "The end date of the event, in ISO8601DateTime format",
               "type": {
                 "kind": "SCALAR",
                 "name": "ISO8601DateTime",
@@ -378,6 +378,11 @@
 
           ],
           "possibleTypes": [
+            {
+              "kind": "OBJECT",
+              "name": "Event",
+              "ofType": null
+            },
             {
               "kind": "OBJECT",
               "name": "Event",

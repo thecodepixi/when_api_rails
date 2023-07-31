@@ -1,5 +1,5 @@
 class Types::EventType < Types::BaseObject 
-  description "A calendar event"
+  implements GraphQL::Types::Relay::Node
 
   field :id, ID, null: false
   field :label, String, "The unique readable identifier for the event, like a title or a name", null: false 
